@@ -7,5 +7,5 @@ A CLI tool to interface with your local Hubitat home automation hub.
 To build for release:
 
 ```sh
-MIX_ENV=prod mix escript.build
+bin/build
 ```

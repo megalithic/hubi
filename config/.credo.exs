@@ -132,7 +132,7 @@
 
         # Deprecated checks (these will be deleted after a grace period)
         #
-        {Credo.Check.Readability.Specs},
+        # {Credo.Check.Readability.Specs},
         {Credo.Check.Warning.NameRedeclarationByAssignment, false},
         {Credo.Check.Warning.NameRedeclarationByCase, false},
         {Credo.Check.Warning.NameRedeclarationByDef, false},

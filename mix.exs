@@ -25,16 +25,23 @@ defmodule Hubi.Mixfile do
   defp elixirc_paths(:test), do: ["sample", "lib"]
   defp elixirc_paths(_all), do: ["lib"]
 
+  # def application do
+  #   [applications: applications(Mix.env())]
+  # end
+
+  # defp applications(:test) do
+  #   applications(:all) ++ [:hackney]
+  # end
+
+  # defp applications(_all) do
+  #   [:logger]
+  # end
+
   def application do
-    [applications: applications(Mix.env())]
-  end
-
-  defp applications(:test) do
-    applications(:all) ++ [:hackney]
-  end
-
-  defp applications(_all) do
-    [:logger]
+    [
+      # mod: {Hubi.Application, []},
+      extra_applications: [:logger, :mint]
+    ]
   end
 
   def deps do
@@ -42,9 +49,9 @@ defmodule Hubi.Mixfile do
       {:ex_cli, "~> 0.1.2"},
       {:credo, "~> 0.8.10", only: [:dev, :test]},
       {:jason, "~> 1.1"},
-      {:hackney, "~> 1.14.0"},
       {:dialyxir, "~> 0.5", only: [:dev], runtime: false},
-      {:tesla, "~> 1.2.1"}
+      {:castore, "~> 0.1.0"},
+      {:mint, "~> 0.4.0"}
     ]
   end
 end

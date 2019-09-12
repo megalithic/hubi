@@ -18,6 +18,7 @@ if command -v asdf >/dev/null 2>&1; then
   asdf install | bin/spinner
 fi
 
+mix deps.clean --all
 mix deps.get
 mix deps.compile
 mix local.hex --force --if-missing
