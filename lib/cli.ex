@@ -1,8 +1,13 @@
-defmodule Hubi.Cli do
-  use ExCLI.DSL
+defmodule Hubi.CLI do
+  @moduledoc false
+
+  use ExCLI.DSL, escript: true
+
+  alias Hubi
 
   name "hubi"
   description "Hubi CLI"
+
   long_description ~s"""
   Hubi CLI script for Hubitat interactions
   """
@@ -12,23 +17,17 @@ defmodule Hubi.Cli do
   command :devices do
     aliases [:list, :ls]
     description "Device listing"
+
     long_description """
     Gets and displays a list of devices on your Hubitat hub
     """
-
-    argument :device_name
-    # option :from, help: "the sender of hello"
 
     run context do
       if context.verbose > 0 do
         IO.puts("Running device listing command..")
       end
-      # if from = context[:from] do
-      #   IO.write("#{from} says: ")
-      # end
-      IO.puts("Hello #{context.device_name}!")
+
+      IO.inspect(Hubi.devices(), label: "devices.........")
     end
   end
 end
-
-ExCLI.run!(Hubi.Cli)
