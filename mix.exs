@@ -1,15 +1,15 @@
-defmodule Hubitat.Mixfile do
+defmodule Hubi.Mixfile do
   use Mix.Project
 
   @version "0.0.1"
 
   def project do
-    [app: :hubitat,
+    [app: :hubi,
      version: @version,
      elixir: "~> 1.8",
      elixirc_paths: elixirc_paths(Mix.env),
      description: "CLI tool to interface with your local Hubitat hub install",
-     source_url: "https://github.com/megalithic/hubitat",
+     source_url: "https://github.com/megalithic/hubi",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      deps: deps(),
