@@ -1,8 +1,17 @@
 # Hubi
 
-A CLI tool to interface with your local Hubitat home automation hub.
+A CLI tool to interface with your local [Hubitat](https://hubitat.com/) home
+automation hub.
 
 > Inspiration: https://github.com/megalithic/dotfiles/blob/master/bin/hubitat
+
+This Elixir project, and the shell script above, came about because I wanted to
+automate some things with my Hubitat hub, via
+[Hammerspoon](https://www.hammerspoon.org/), and also because I work primarily
+on the command line.
+
+See the [Hubitat Maker App Docs](https://docs.hubitat.com/index.php?title=Hubitat%E2%84%A2_Maker_API)
+for more info on what can be done via HTTP.
 
 ### Setup
 
@@ -19,6 +28,7 @@ _Note:_ setup and configuration will most certainly change and be **better**.
 ### Usage
 
 [Download the `hubi` binary](https://github.com/megalithic/hubi/raw/master/hubi)
+and place it in your system's `$PATH`.
 
 ```sh
 usage: hubi [--verbose] <command> [<args>]
