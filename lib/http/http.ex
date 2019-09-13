@@ -18,7 +18,7 @@ defmodule HTTP do
     # get an existing connection if it is already available
     conn = get_connection(uri)
 
-    Logger.info("#{method} #{uri}")
+    Logger.debug("#{method} #{uri}")
 
     {:ok, conn, request_ref} = Mint.HTTP.request(conn, method, path(uri), headers, body)
 
@@ -43,7 +43,7 @@ defmodule HTTP do
     if conn do
       conn
     else
-      Logger.info("creating HTTP connection")
+      Logger.debug("creating HTTP connection")
       {:ok, conn} = Mint.HTTP.connect(scheme_atom(uri.scheme), uri.host, uri.port)
       conn
     end
