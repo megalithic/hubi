@@ -4,7 +4,7 @@ defmodule Hubi.CLI do
   use ExCLI.DSL, escript: true
 
   alias Hubi
-  alias Hubi.Device
+  # alias Hubi.Device
 
   name "hubi"
   description "Hubi CLI"

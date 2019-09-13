@@ -40,7 +40,7 @@ defmodule Hubi.Mixfile do
   def application do
     [
       # mod: {Hubi.Application, []},
-      extra_applications: [:logger, :mint, :table_rex]
+      applications: [:logger, :mint, :table_rex]
     ]
   end
 
