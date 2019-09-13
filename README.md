@@ -34,7 +34,7 @@ and place it in your system's `$PATH`.
 usage: hubi [--verbose] <command> [<args>]
 
 Commands
-  status    Device Status/Info
+  device    Device Status/Info (requires a device_id)
   devices   Device listing
 ```
 
@@ -51,3 +51,13 @@ To build/compile for release:
 ```sh
 bin/build
 ```
+
+#### TODO
+
+- [ ] Finish formatting of device status/info
+- [ ] Implement ability to do simple on/off operations to switches/et al
+- [ ] Implement interactive operations on the returned list of devices
+
+#### Attribution
+
+Huge props to [@alnguyen](https://github.com/alnguyen) for the project name and the encouragement to build this.

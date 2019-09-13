@@ -1,5 +1,6 @@
 defmodule HTTP do
   require Logger
+
   def get(uri, headers \\ []), do: request("GET", uri, headers)
 
   def request(method, uri, headers \\ [], body \\ [])
@@ -42,7 +43,7 @@ defmodule HTTP do
     if conn do
       conn
     else
-      Logger.info("creating HTTP connection to Github")
+      Logger.info("creating HTTP connection")
       {:ok, conn} = Mint.HTTP.connect(scheme_atom(uri.scheme), uri.host, uri.port)
       conn
     end

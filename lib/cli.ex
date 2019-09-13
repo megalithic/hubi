@@ -4,6 +4,7 @@ defmodule Hubi.CLI do
   use ExCLI.DSL, escript: true
 
   alias Hubi
+  alias Hubi.Device
 
   name "hubi"
   description "Hubi CLI"
@@ -40,9 +41,9 @@ defmodule Hubi.CLI do
     end
   end
 
-  command :status do
-    aliases [:device]
-    description "Device Status/Info"
+  command :device do
+    aliases [:status]
+    description "Device Status/Info (requires <device_id>)"
 
     long_description """
     Gets and displays the status/info about a device
@@ -83,6 +84,8 @@ defmodule Hubi.CLI do
           {"Value", fn %{"currentValue" => value} -> value end}
         ]
       )
+
+      # Device.print(meta)
 
       # Scribe.print(capabilities, style: Scribe.Style.Pseudo)
 
