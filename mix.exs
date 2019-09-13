@@ -40,7 +40,7 @@ defmodule Hubi.Mixfile do
   def application do
     [
       # mod: {Hubi.Application, []},
-      extra_applications: [:logger, :mint]
+      extra_applications: [:logger, :mint, :table_rex]
     ]
   end
 
@@ -51,7 +51,10 @@ defmodule Hubi.Mixfile do
       {:jason, "~> 1.1"},
       {:dialyxir, "~> 0.5", only: [:dev], runtime: false},
       {:castore, "~> 0.1.0"},
-      {:mint, "~> 0.4.0"}
+      {:mint, "~> 0.4.0"},
+      {:progress_bar, "~> 2.0.0"},
+      {:scribe, "~> 0.10"},
+      {:table_rex, "~> 2.0.0"}
     ]
   end
 end

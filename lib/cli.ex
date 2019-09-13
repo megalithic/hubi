@@ -28,7 +28,15 @@ defmodule Hubi.CLI do
       end
 
       {:ok, devices} = Hubi.devices()
-      IO.inspect(devices)
+
+      Scribe.print(devices,
+        style: Scribe.Style.Pseudo,
+        data: [
+          {"Device ID", fn row -> String.to_integer(row["id"]) end},
+          {"Label", fn row -> row["label"] end},
+          {"Name", fn row -> row["name"] end}
+        ]
+      )
     end
   end
 
@@ -47,8 +55,39 @@ defmodule Hubi.CLI do
         IO.puts("Running device get command for #{context.device_id}..")
       end
 
-      {:ok, device} = Hubi.device(context.device_id)
-      IO.inspect(device)
+      {:ok,
+       %{meta: meta, commands: commands, capabilities: capabilities, attributes: attributes} =
+         _device} = Hubi.device(context.device_id)
+
+      Scribe.print(meta,
+        style: Scribe.Style.Pseudo,
+        data: [
+          {"Device ID", fn %{id: id} -> id end},
+          {"Label", fn %{label: label} -> label end},
+          {"Name", fn %{name: name} -> name end}
+        ]
+      )
+
+      Scribe.print(commands,
+        style: Scribe.Style.Pseudo,
+        data: [
+          {"Supported Commands", fn %{commands: commands} -> commands end}
+        ]
+      )
+
+      Scribe.print(attributes,
+        style: Scribe.Style.Pseudo,
+        data: [
+          {"Name", fn %{"name" => name} -> name end},
+          {"Type", fn %{"dataType" => type} -> type end},
+          {"Value", fn %{"currentValue" => value} -> value end}
+        ]
+      )
+
+      # Scribe.print(capabilities, style: Scribe.Style.Pseudo)
+
+      IO.inspect(capabilities, label: "--------------------------- capabilities: ")
+      # IO.inspect(attributes, label: "--------------------------- attributes: ")
     end
   end
 end

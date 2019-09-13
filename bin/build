@@ -7,6 +7,6 @@ trap 'error ${BASH_SOURCE[0]} ${LINENO}' ERR
 
 echo "Building CLI executable.."
 
-bin/spinner mix escript.build
+# bin/spinner mix escript.build
 # MIX_ENV=prod bin/spinner mix escript.build
-# mix escript.build
+mix escript.build
